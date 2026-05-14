@@ -1,14 +1,28 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, MessageCircle, MousePointerClick } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, MessageCircle, MousePointerClick } from "lucide-react";
 
-export const navItems: { label: string; to: string }[] = [
+type NavItem = {
+  label: string;
+  to: string;
+  children?: { label: string; to: string }[];
+};
+
+export const navItems: NavItem[] = [
   { label: "首頁", to: "/" },
   { label: "關於我們", to: "/about" },
   { label: "課程資訊", to: "/courses" },
-  { label: "一對一諮詢", to: "/consultation" },
+  {
+    label: "一對一諮詢",
+    to: "/consultation",
+    children: [
+      { label: "諮詢介紹", to: "/consultation" },
+      { label: "師資介紹", to: "/teachers" },
+    ],
+  },
   { label: "學員真實分享", to: "/testimonials" },
 ];
+
 
 export function Logo({ size = "default" }: { size?: "default" | "lg" }) {
   const wrap = size === "lg" ? "w-14 h-14" : "w-9 h-9";
@@ -33,17 +47,44 @@ export function SiteHeader() {
           </div>
         </Link>
         <nav className="hidden md:flex items-center gap-7 text-sm">
-          {navItems.map((n) => (
-            <Link
-              key={n.label}
-              to={n.to}
-              className="hover:text-foreground/60 transition-colors"
-              activeProps={{ className: "text-foreground font-semibold" }}
-              activeOptions={{ exact: true }}
-            >
-              {n.label}
-            </Link>
-          ))}
+          {navItems.map((n) =>
+            n.children ? (
+              <div key={n.label} className="relative group">
+                <Link
+                  to={n.to}
+                  className="inline-flex items-center gap-1 hover:text-foreground/60 transition-colors"
+                  activeProps={{ className: "text-foreground font-semibold" }}
+                >
+                  {n.label}
+                  <ChevronDown className="w-3.5 h-3.5" />
+                </Link>
+                <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity">
+                  <div className="min-w-[140px] rounded-md border border-border bg-background shadow-md py-2">
+                    {n.children.map((c) => (
+                      <Link
+                        key={c.label}
+                        to={c.to}
+                        className="block px-4 py-2 text-sm hover:bg-muted whitespace-nowrap"
+                        activeProps={{ className: "font-semibold" }}
+                      >
+                        {c.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={n.label}
+                to={n.to}
+                className="hover:text-foreground/60 transition-colors"
+                activeProps={{ className: "text-foreground font-semibold" }}
+                activeOptions={{ exact: true }}
+              >
+                {n.label}
+              </Link>
+            ),
+          )}
         </nav>
         <div className="flex items-center gap-2 shrink-0">
           <Button variant="outline" size="sm" className="rounded-md">
