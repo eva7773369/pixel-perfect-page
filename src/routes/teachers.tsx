@@ -73,9 +73,13 @@ function TeachersPage() {
                 <p className="text-xs text-foreground/80">權威領域：{t.area}</p>
                 <div className="flex gap-2 pt-1">
                   <button className="px-3 py-1 rounded bg-muted text-xs">前往社群</button>
-                  <button className="px-3 py-1 rounded bg-foreground text-background text-xs">
+                  <Link
+                    to="/teachers/$id"
+                    params={{ id: String(t.id) }}
+                    className="px-3 py-1 rounded bg-foreground text-background text-xs"
+                  >
                     立即預約
-                  </button>
+                  </Link>
                 </div>
               </div>
             </article>
