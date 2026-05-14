@@ -1,14 +1,28 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Facebook, Instagram, MessageCircle, MousePointerClick } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, MessageCircle, MousePointerClick } from "lucide-react";
 
-export const navItems: { label: string; to: string }[] = [
+type NavItem = {
+  label: string;
+  to: string;
+  children?: { label: string; to: string }[];
+};
+
+export const navItems: NavItem[] = [
   { label: "首頁", to: "/" },
   { label: "關於我們", to: "/about" },
   { label: "課程資訊", to: "/courses" },
-  { label: "一對一諮詢", to: "/consultation" },
+  {
+    label: "一對一諮詢",
+    to: "/consultation",
+    children: [
+      { label: "諮詢介紹", to: "/consultation" },
+      { label: "師資介紹", to: "/teachers" },
+    ],
+  },
   { label: "學員真實分享", to: "/testimonials" },
 ];
+
 
 export function Logo({ size = "default" }: { size?: "default" | "lg" }) {
   const wrap = size === "lg" ? "w-14 h-14" : "w-9 h-9";
