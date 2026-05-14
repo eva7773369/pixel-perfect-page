@@ -16,7 +16,7 @@ export const navItems: NavItem[] = [
     label: "一對一諮詢",
     to: "/consultation",
     children: [
-      { label: "諮詢介紹", to: "/consultation" },
+      { label: "預約一對一諮詢", to: "/consultation" },
       { label: "師資介紹", to: "/teachers" },
     ],
   },
