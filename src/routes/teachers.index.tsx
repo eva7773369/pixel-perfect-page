@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { ChevronDown } from "lucide-react";
 
-export const Route = createFileRoute("/teachers")({
+export const Route = createFileRoute("/teachers/")({
   component: TeachersPage,
   head: () => ({
     meta: [
