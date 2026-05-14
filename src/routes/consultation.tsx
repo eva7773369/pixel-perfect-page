@@ -65,10 +65,6 @@ function ConsultationPage() {
           </p>
 
           <div className="pt-4 space-y-4">
-            <button className="w-full flex items-center justify-between border border-border rounded-md px-4 py-3 text-sm bg-background hover:bg-muted/40">
-              <span>預約時段</span>
-              <ChevronDown className="w-4 h-4" />
-            </button>
             <div className="flex items-center justify-between gap-4">
               <span className="text-2xl font-medium">NT$36,000</span>
               <button className="px-6 py-2.5 rounded-md bg-foreground text-background text-sm hover:bg-foreground/90">
