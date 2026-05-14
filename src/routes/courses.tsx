@@ -38,7 +38,9 @@ function CoursesPage() {
               </Link>
               <div className="space-y-1">
                 <p className="text-xs text-muted-foreground">{c.subtitle}</p>
-                <h3 className="text-lg font-semibold">{c.title}</h3>
+                <Link to="/courses/$id" params={{ id: c.id }} className="block">
+                  <h3 className="text-lg font-semibold hover:underline">{c.title}</h3>
+                </Link>
                 <div className="flex items-center justify-between pt-3">
                   <span className="text-base">{c.price}</span>
                   <Link
