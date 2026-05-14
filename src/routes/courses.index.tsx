@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 
-export const Route = createFileRoute("/courses")({
+export const Route = createFileRoute("/courses/")({
   component: CoursesPage,
   head: () => ({
     meta: [
