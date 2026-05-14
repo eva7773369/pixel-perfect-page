@@ -6,8 +6,8 @@ export const navItems: { label: string; to: string }[] = [
   { label: "首頁", to: "/" },
   { label: "關於我們", to: "/about" },
   { label: "課程資訊", to: "/courses" },
-  { label: "一對一諮詢", to: "/" },
-  { label: "學員真實分享", to: "/" },
+  { label: "一對一諮詢", to: "/consultation" },
+  { label: "學員真實分享", to: "/testimonials" },
 ];
 
 export function Logo({ size = "default" }: { size?: "default" | "lg" }) {
