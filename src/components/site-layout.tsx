@@ -91,10 +91,11 @@ export function SiteHeader() {
             登入會員
           </Button>
           <Button
+            asChild
             size="sm"
             className="rounded-md bg-foreground text-background hover:bg-foreground/90"
           >
-            快速分析
+            <Link to="/" hash="quick-test">快速分析</Link>
           </Button>
         </div>
       </div>
@@ -154,10 +155,14 @@ export function SiteFooter() {
 
 export function FloatingCTA() {
   return (
-    <button className="fixed bottom-6 right-6 w-20 h-20 rounded-full bg-foreground text-background shadow-lg hover:scale-105 transition-transform flex flex-col items-center justify-center gap-1 z-50">
+    <Link
+      to="/"
+      hash="quick-test"
+      className="fixed bottom-6 right-6 w-20 h-20 rounded-full bg-foreground text-background shadow-lg hover:scale-105 transition-transform flex flex-col items-center justify-center gap-1 z-50"
+    >
       <MousePointerClick className="w-6 h-6" />
       <span className="text-xs font-medium">快速分析</span>
-    </button>
+    </Link>
   );
 }
 
