@@ -91,10 +91,11 @@ export function SiteHeader() {
             登入會員
           </Button>
           <Button
+            asChild
             size="sm"
             className="rounded-md bg-foreground text-background hover:bg-foreground/90"
           >
-            快速分析
+            <Link to="/" hash="quick-test">快速分析</Link>
           </Button>
         </div>
       </div>
