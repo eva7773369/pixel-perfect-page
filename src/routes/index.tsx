@@ -55,7 +55,7 @@ function Index() {
       </section>
 
       {/* Quick Test */}
-      <section className="bg-muted/60 py-20">
+      <section id="quick-test" className="bg-muted/60 py-20 scroll-mt-20">
         <div className="mx-auto max-w-3xl px-6">
           <div className="flex justify-center -mb-6 relative z-10">
             <span className="px-8 py-2.5 rounded-full bg-foreground text-background text-sm shadow-md">
