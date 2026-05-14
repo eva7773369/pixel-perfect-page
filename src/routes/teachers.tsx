@@ -42,12 +42,6 @@ function TeachersPage() {
           <button className="w-full flex items-center justify-between border border-border rounded-md px-3 py-2 text-sm">
             師資性別 <ChevronDown className="w-4 h-4" />
           </button>
-          <div className="border border-border rounded-md text-sm overflow-hidden">
-            <button className="w-full px-3 py-2 text-left hover:bg-muted/60 border-b border-border">
-              男師資
-            </button>
-            <button className="w-full px-3 py-2 text-left hover:bg-muted/60">女師資</button>
-          </div>
           <div className="text-center pt-2">
             <button className="px-4 py-1.5 rounded bg-foreground text-background text-xs">
               立即搜尋
