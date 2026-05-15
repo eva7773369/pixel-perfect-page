@@ -130,10 +130,28 @@ function ResultPage() {
           {/* 天賦 */}
           <div className="bg-muted rounded-2xl p-8 space-y-6">
             <h3 className="text-2xl font-semibold text-center">天賦</h3>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-              {talentCards.map((c) => (
-                <MiniCard key={c.num} {...c} />
-              ))}
+            <div className="relative h-56 flex justify-center items-center">
+              {talentCards.map((c, i) => {
+                const total = talentCards.length;
+                const offset = i - (total - 1) / 2;
+                const rotate = offset * 6;
+                const translateX = offset * 56;
+                const translateY = Math.abs(offset) * 4;
+                return (
+                  <div
+                    key={c.num}
+                    className="absolute w-24 opacity-0 animate-fade-in transition-transform duration-300 hover:-translate-y-3 hover:z-20"
+                    style={{
+                      transform: `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg)`,
+                      animationDelay: `${i * 90}ms`,
+                      animationFillMode: "forwards",
+                      zIndex: i,
+                    }}
+                  >
+                    <MiniCard {...c} />
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -141,13 +159,26 @@ function ResultPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-center">導師</h3>
-              <div className="relative h-48">
-                <div className="absolute left-4 top-0 w-28">
-                  <MiniCard {...mentorCards[0]} />
-                </div>
-                <div className="absolute left-16 top-3 w-28">
-                  <MiniCard {...mentorCards[1]} />
-                </div>
+              <div className="relative h-48 flex justify-center items-center">
+                {mentorCards.map((c, i) => {
+                  const offset = i - (mentorCards.length - 1) / 2;
+                  const rotate = offset * 10;
+                  const translateX = offset * 40;
+                  return (
+                    <div
+                      key={c.num}
+                      className="absolute w-24 opacity-0 animate-fade-in transition-transform duration-300 hover:-translate-y-3 hover:z-20"
+                      style={{
+                        transform: `translate(${translateX}px, 0) rotate(${rotate}deg)`,
+                        animationDelay: `${600 + i * 120}ms`,
+                        animationFillMode: "forwards",
+                        zIndex: i,
+                      }}
+                    >
+                      <MiniCard {...c} />
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <div className="space-y-4">
