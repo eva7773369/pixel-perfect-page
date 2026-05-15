@@ -32,8 +32,20 @@ const yearCards = [{ num: "11", name: "權威者" }];
 
 function MiniCard({ num, name }: { num: string; name: string }) {
   return (
-    <div className="relative w-full aspect-[3/4] rounded-lg bg-foreground/70 shadow-sm">
-      <div className="absolute bottom-2 left-2 right-2 bg-background/90 rounded px-2 py-1 text-[11px] text-foreground">
+    <div className="relative w-full aspect-[3/4] rounded-lg shadow-lg overflow-hidden border-2 border-foreground/20 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900">
+      <div className="absolute inset-1.5 rounded-md border border-amber-200/30" />
+      <span className="absolute top-1.5 left-2 text-[10px] font-semibold text-amber-100/90 leading-none">
+        {num}
+      </span>
+      <span className="absolute bottom-1.5 right-2 text-[10px] font-semibold text-amber-100/90 leading-none rotate-180">
+        {num}
+      </span>
+      <div className="absolute inset-0 grid place-items-center pb-6">
+        <div className="w-10 h-10 rounded-full border border-amber-200/40 grid place-items-center">
+          <div className="w-5 h-5 rotate-45 border border-amber-200/50" />
+        </div>
+      </div>
+      <div className="absolute bottom-1.5 left-1.5 right-1.5 bg-background/95 rounded px-1 py-0.5 text-[10px] text-foreground text-center font-medium">
         {num} {name}
       </div>
     </div>
